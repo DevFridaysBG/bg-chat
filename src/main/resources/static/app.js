@@ -83,6 +83,14 @@ sendMessage = function (text, message_side) {
     return $messages.animate({scrollTop: $messages.prop('scrollHeight')}, 300);
 };
 
+$(function () {
+    $('#message').keyup(function (e) {
+        if (e.which === 13) {
+            sendName();
+        }
+    });
+});
+
 function showGreeting(message) {
     let side = message.includes($("#name").val()) ? 'right' : 'left';
     sendMessage(message, side);
