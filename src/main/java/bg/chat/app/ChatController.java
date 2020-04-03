@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
-public class GreetingsController {
+public class ChatController {
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
-    public Greeting greeting(HelloMessage message) throws Exception {
-        Thread.sleep(1000); // simulated delay
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    public Response greeting(Request message) throws Exception {
+        String messageFormat = "%s: %s";
+        return new Response(String.format(messageFormat, HtmlUtils.htmlEscape(message.getName()), message.getMessage()));
     }
 }
