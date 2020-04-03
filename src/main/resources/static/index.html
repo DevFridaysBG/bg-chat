@@ -8,6 +8,7 @@
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/app.js"></script>
+    <style href="/app.js"></style>
 </head>
 <body>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
@@ -16,14 +17,7 @@
 <div id="main-content" class="container">
     <div class="row">
         <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
-                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                    </button>
-                </div>
-            </form>
+
         </div>
         <div class="col-md-6">
             <form class="form-inline">
@@ -31,10 +25,10 @@
                     <label for="name">What is your name?</label>
                     <input type="text" id="name" class="form-control" placeholder="Your name here...">
 
-                    <label for="message">Say:</label>
-                    <input type="message" id="message" class="form-control" placeholder="Your message...">
+<!--                    <label for="message">Say:</label>-->
+<!--                    <input type="message" id="message" class="form-control" placeholder="Your message...">-->
                 </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
+<!--                <button id="send" class="btn btn-default" type="submit">Send</button>-->
             </form>
         </div>
     </div>
@@ -51,6 +45,42 @@
             </table>
         </div>
     </div>
+</div>
+
+<div class="chat_window">
+    <div class="top_menu">
+        <div class="buttons">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
+        </div>
+        <div class="title">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">WebSocket connection:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ul class="messages"></ul>
+    <div class="bottom_wrapper clearfix">
+        <div class="message_input_wrapper"><input id="message" class="message_input" placeholder="Type your message here..."/></div>
+        <div id="send" class="send_message">
+            <div class="icon"></div>
+            <div class="text">Send</div>
+        </div>
+    </div>
+</div>
+<div class="message_template">
+    <li class="message">
+        <div class="avatar"></div>
+        <div class="text_wrapper">
+            <div class="text"></div>
+        </div>
+    </li>
 </div>
 </body>
 </html>
